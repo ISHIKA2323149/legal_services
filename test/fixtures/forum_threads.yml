@@ -1,13 +1,18 @@
 # == Schema Information
 #
-# Table name: news
+# Table name: forum_threads
 #
 #  id         :integer          not null, primary key
-#  body       :string
-#  title      :string
+#  subject    :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
-class News < ApplicationRecord
-  
-end
+
+one:
+  user_id: 1
+  subject: MyString
+
+two:
+  user_id: 1
+  subject: MyString
