@@ -8,8 +8,9 @@
   <div class= "hero">
     <img src = "https://static.vecteezy.com/system/resources/previews/010/223/118/original/business-and-lawyers-discussing-contract-papers-with-brass-scale-on-desk-in-office-law-legal-services-advice-justice-and-law-concept-picture-with-film-grain-effect-free-photo.jpg", class = "homepage">
     <div class = "nav">
-        <li><%= link_to "SIGN IN", new_user_session_path %></li>
-          <%= link_to "add news", new_news_path if user_signed_in? %>                               
+        <li><%= button_to "SIGN IN", new_user_session_path %></li>
+          <%= link_to "ADD NEWS", new_news_path if user_signed_in? %><br>
+        <li><%= link_to "NEWS", news_index_path %></li>                             
         <li><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
         <li><a href="#">ABOUT WEBSITE</a></li>
     </div>
