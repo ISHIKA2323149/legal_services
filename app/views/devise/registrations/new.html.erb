@@ -25,8 +25,36 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  
+  <div>
   <%= f.label :role %><br>
   <%= f.select :role, {"user"=> :user,"lawyer"=> :lawyer}, {} %>
+  </div>
+
+  <div>
+  <%= f.label :license_no %><br>
+  <%= f.text_field :license_no %>
+  </div>
+
+  <div>
+  <%= f.label :practice_court_name %><br>
+  <%= f.text_field :practice_court_name %>
+  </div>
+
+  <div>
+  <%= f.label :practice_field_name %><br>
+  <%= f.text_field :practice_field_name %>
+  </div>
+
+  <div>
+  <%= f.label :city %><br>
+  <%= f.text_field :city %>
+  </div>
+
+  <div>
+  <%= f.label :consultation_fees %><br>
+  <%= f.text_field :consultation_fees%>
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

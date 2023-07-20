@@ -3,9 +3,14 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  city                   :string
+#  consultation_fees      :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  license_no             :string
 #  name                   :string
+#  practice_court_name    :string
+#  practice_field_name    :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
