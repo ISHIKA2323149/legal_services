@@ -12,7 +12,7 @@
           <% if user_signed_in? %>
           <%= link_to "ADD NEWS", new_news_path %><br>
           <li><%= link_to "NEWS", news_index_path %></li>
-          <li><%= link_to "Q/A fORUM", new_forum_thread_path , method: :new%></li>
+          <li><%= link_to "Q/A FORUM", new_forum_thread_path , method: :new%></li>
           <li><%= link_to "THREADS", forum_threads_path, method: :get %></li>                             
           <li><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
           <% end %>
