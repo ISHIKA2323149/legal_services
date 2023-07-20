@@ -9,9 +9,13 @@
     <img src = "https://static.vecteezy.com/system/resources/previews/010/223/118/original/business-and-lawyers-discussing-contract-papers-with-brass-scale-on-desk-in-office-law-legal-services-advice-justice-and-law-concept-picture-with-film-grain-effect-free-photo.jpg", class = "homepage">
     <div class = "nav">
         <li><%= button_to "SIGN IN", new_user_session_path %></li>
-          <%= link_to "ADD NEWS", new_news_path if user_signed_in? %><br>
-        <li><%= link_to "NEWS", news_index_path %></li>                             
-        <li><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
+          <% if user_signed_in? %>
+          <%= link_to "ADD NEWS", new_news_path %><br>
+          <li><%= link_to "NEWS", news_index_path %></li>
+          <li><%= link_to "Q/A fORUM", new_forum_thread_path , method: :new%></li>
+          <li><%= link_to "THREADS", forum_threads_path, method: :get %></li>                             
+          <li><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
+          <% end %>
         <li><a href="#">ABOUT WEBSITE</a></li>
     </div>
     <div class = "center">

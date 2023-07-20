@@ -1,0 +1,11 @@
+<h1>All Forum Threads</h1>
+
+<% if @forum_threads.any? %>
+  <ul>
+    <% @forum_threads.each do |forum_thread| %>
+      <li><%= link_to forum_thread.subject, forum_thread_path(forum_thread) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No forum threads found.</p>
+<% end %>
