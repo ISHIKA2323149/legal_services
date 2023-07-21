@@ -1,0 +1,20 @@
+<h1>Enter Lawyer Details</h1>
+
+<%= form_with(model: @user, url: user_lawyer_details_path(@user), method: :post) do |form| %>
+  <%= form.label :license_no %>
+  <%= form.text_field :license_no %>
+
+  <%= form.label :practice_court_name %>
+  <%= form.text_field :practice_court_name %>
+
+  <%= form.label :practice_field_name %>
+  <%= form.text_field :practice_field_name %>
+
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+
+  <%= form.label :consultation_fees %>
+  <%= form.text_field :consultation_fees %>
+
+  <%= form.submit "Submit" %>
+<% end %>

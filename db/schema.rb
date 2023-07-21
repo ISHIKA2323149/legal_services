@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_20_103459) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_21_083538) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -58,6 +58,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_103459) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "lawyer_details", force: :cascade do |t|
+    t.string "license_no"
+    t.integer "user_id", null: false
+    t.string "practice_court_name"
+    t.string "practice_field_name"
+    t.string "experience"
+    t.string "city"
+    t.string "consultation_fees"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_lawyer_details_on_user_id"
+  end
+
   create_table "news", force: :cascade do |t|
     t.string "title"
     t.string "body"
@@ -75,13 +88,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_103459) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "role"
-    t.string "license_no"
-    t.string "practice_court_name"
-    t.string "practice_field_name"
-    t.string "city"
-    t.string "consultation_fees"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lawyer_details", "users"
 end

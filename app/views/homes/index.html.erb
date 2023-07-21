@@ -11,6 +11,8 @@
     <div class = "nav">
         <li><%= button_to "SIGN IN", new_user_session_path %></li>
           <% if user_signed_in? && current_user.role == "lawyer" %>
+            <%= link_to "Add Your Details", new_lawyer_detail_path , method: :new %>
+            <li><%= link_to "LAWYERS", lawyer_details_path, method: :get %></li>
             <%= link_to "ADD NEWS", new_news_path %><br>
             <li><%= link_to "NEWS", news_index_path %></li>
             <li><%= link_to "Q/A FORUM", new_forum_thread_path , method: :new%></li>

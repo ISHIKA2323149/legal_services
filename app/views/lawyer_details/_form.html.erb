@@ -1,0 +1,36 @@
+<%= form_with model: @lawyer_detail do |form| %>
+  <div>
+    <%= form.label :license_no %><br>
+    <%= form.text_field :license_no %>
+  </div>
+
+  <div>
+    <%= form.label :practice_court_name %><br>
+    <%= form.text_field :practice_court_name %>
+  </div>
+
+  <div>
+    <%= form.label :practice_field_name %><br>
+    <%= form.text_field :practice_field_name %>
+  </div>
+
+  <div>
+    <%= form.label :experience %><br>
+    <%= form.text_field :experience %>
+  </div>
+
+  <div>
+    <%= form.label :city %><br>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.label :consultation_fees %><br>
+    <%= form.text_field :consultation_fees %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

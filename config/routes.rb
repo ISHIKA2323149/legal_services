@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations'}
   resources :news
   resources :forum_threads
+  resources :lawyer_details
 end
