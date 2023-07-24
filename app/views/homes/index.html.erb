@@ -11,18 +11,19 @@
     <div class = "nav">
         <li><%= button_to "SIGN IN", new_user_session_path %></li>
           <% if user_signed_in? && current_user.role == "lawyer" %>
-            <%= link_to "Add Your Details", new_lawyer_detail_path , method: :new %>
-            <li><%= link_to "LAWYERS", lawyer_details_path, method: :get %></li>
+            <li><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "ADD DETAILS", new_lawyer_detail_path , method: :new %></li>
             <%= link_to "ADD NEWS", new_news_path %><br>
             <li><%= link_to "NEWS", news_index_path %></li>
             <li><%= link_to "Q/A FORUM", new_forum_thread_path , method: :new%></li>
             <li><%= link_to "THREADS", forum_threads_path, method: :get %></li>                             
           <% else %>
+            <li><%= link_to "LAWYERS", lawyer_details_path, method: :get %></li>
             <li><%= link_to "NEWS", news_index_path %></li>
             <li><%= link_to "Q/A FORUM", new_forum_thread_path , method: :new%></li>
           <% end %>
-        <li><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></li>
-        <li><a href="#">ABOUT WEBSITE</a></li>
+          <li><%= link_to "CHAT", rooms_path %></li>
+          <li><a href="#">ABOUT WEBSITE</a></li>
     </div>
     <div class = "center">
       <h1>ONLINE LEGAL SERVICES PLATFORM</h1>

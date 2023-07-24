@@ -24,6 +24,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates_uniqueness_of :name
+  scope :all_except, ->(user) { where.not(id: user) }
+  after_create_commit {broadcast_append_to "users"}
+  has_many :messages
+
   enum role: {user: 0, lawyer: 1}
   has_many :forum_threads
   has_many :forum_posts
