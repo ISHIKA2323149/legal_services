@@ -9,5 +9,4 @@
 #  updated_at :datetime         not null
 #
 class News < ApplicationRecord
-  
 end

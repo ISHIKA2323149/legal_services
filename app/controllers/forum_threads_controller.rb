@@ -1,7 +1,7 @@
 class ForumThreadsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_forum_thread, except: [:index, :new, :create]
-  
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :set_forum_thread, except: %i[index new create]
+
   def index
     @forum_threads = ForumThread.all
   end
@@ -35,5 +35,5 @@ class ForumThreadsController < ApplicationController
 
   def forum_thread_params
     params.require(:forum_thread).permit(:subject, forum_posts_attributes: [:body])
-  end 
+  end
 end

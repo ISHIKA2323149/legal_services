@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class TurboFailureApp < Devise::FailureApp
   def respond
     if request_format == :turbo_stream
@@ -28,7 +29,6 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'aa2050199e917efd1a06fe7641440c7376806eeb9ac9e3af3160ed6ae46ac54874efd38a4b0c5fcaabb903dc8e93606682c7c3393247564ce1f9287e1eaa54d7'
-
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.

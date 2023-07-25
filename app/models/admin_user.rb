@@ -19,13 +19,12 @@
 class AdminUser < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
-
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     # List the attributes that you want to be searchable using Ransack
     # Make sure to exclude any sensitive or unnecessary attributes.
-    ["created_at", "email", "id", "updated_at"]
+    %w[created_at email id updated_at]
   end
 end

@@ -9,7 +9,7 @@
 #  forum_thread_id :integer
 #  user_id         :integer
 #
-require "test_helper"
+require 'test_helper'
 
 class ForumPostTest < ActiveSupport::TestCase
   # test "the truth" do
