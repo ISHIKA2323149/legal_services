@@ -5,7 +5,7 @@
 <% if @forum_posts.any? %>
   <div>
     <% @forum_posts.each do |post| %>
-      <li><%= post.body %></li>
+      =><%= post.body %> - <%= post.user.name %> - <%= post.user.created_at %>
     <% end %>
   </div>
 <% else %>

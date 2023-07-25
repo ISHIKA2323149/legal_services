@@ -40,27 +40,30 @@
     background-size: auto;
 }
 
-.nav{
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px 8%;
-    display: flex;
-    align-items: center;
-    justify-content: right;
-}
 
+.topnav{
+      overflow: hidden;
+      background-color: #eae3db;
+  }
 
-.nav li{
-    list-style: none;
-    display: inline-block;
-    margin: 30px;
-    align-items: center;
-}
+  .topnav a {
+  float: left;
+  color: #0d0b0b;
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration:none ;
+  font-size: 17px;
+  }
 
+  .topnav a:hover {
+  background-color: #d6b791;
+  color: black; 
+  }
 
-
+  .topnav a.active {
+  background-color: #d6b791;
+  color: black;
+  }
 .center{
     font-size: 10px;
     border: 8px solid;
