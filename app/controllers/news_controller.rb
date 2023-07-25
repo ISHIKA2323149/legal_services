@@ -1,14 +1,12 @@
 class NewsController < ApplicationController
+  before_action :find_params ,only: [:show, :edit, :update, :destroy]
+
   def index
     @news = News.all
   end
 
   def new
     @news = News.new
-  end
-
-  def show
-    @news = News.find(params[:id])
   end
 
   def create
@@ -20,9 +18,33 @@ class NewsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+
+  def update
+    if @news.update(set_params)
+        redirect_to @news
+    else
+        render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @news.destroy
+    redirect_to root_path, status: :see_other
+  end
+
   private
 
   def set_params
     params.require(:news).permit(:title, :body)
+  end
+
+  def find_params
+    @news  = News.find(params[:id])
   end
 end

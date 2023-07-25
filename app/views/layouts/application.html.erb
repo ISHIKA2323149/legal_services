@@ -16,7 +16,7 @@
       padding: 10px;
       }
       <%= ".cont-#{current_user&.id}" %> {
-      display: flex;
+    display: flex;
       justify-content: flex-end
       }
     </style>
@@ -24,24 +24,32 @@
   <body>
     <div class="topnav">
         <a class="active", href="http://localhost:3000/">Legal Services</a>
-          <%= link_to "SIGN IN", new_user_session_path %>
           <% if user_signed_in? && current_user.role == "lawyer" %>
             <%= link_to "ADD DETAILS", new_lawyer_detail_path , method: :new %>
             <%= link_to "ADD NEWS", new_news_path %>
             <%= link_to "NEWS", news_index_path %>
             <%= link_to "Q/A FORUM", new_forum_thread_path , method: :new%>
             <%= link_to "THREADS", forum_threads_path, method: :get %>
-            <%= link_to "LAWYERS", lawyer_details_path, method: :get %>                             
+            <%= link_to "LAWYERS", lawyer_details_path, method: :get %>
+            <%= link_to "CHAT", rooms_path %>
+            <% if user_signed_in? %>
+            <a><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></a>
+            <% else %>
+            <%= link_to "SIGN IN", new_user_session_path %>
+            <% end %>
           <% else %>
             <%= link_to "NEWS", news_index_path %>
             <%= link_to "Q/A FORUM", new_forum_thread_path , method: :new%>
+            <%= link_to "THREADS", forum_threads_path, method: :get %>
             <%= link_to "LAWYERS", lawyer_details_path, method: :get %>
+            <%= link_to "CHAT", rooms_path %>
+            <% if user_signed_in? %>
+            <a><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></a>
+            <% else %>
+            <%= link_to "SIGN IN", new_user_session_path %>
+            <% end %>
           <% end %>
-            <%= link_to "CHAT", rooms_path %><br />
-            <%= button_to "LOG OUT", destroy_user_session_path, method: :delete %>
-          
     </div>
-
     <%= yield %>
   </body>
 </html>
