@@ -1,0 +1,6 @@
+<h1>CASES</h1>
+<% @cases.each do |cases|%><br>
+  <%= (link_to cases.case_name,cases) if (cases.user_id == current_user.id) %>
+<%end%>
+<br>
+<%= link_to "Add Case", new_case_path, method: :new %> 

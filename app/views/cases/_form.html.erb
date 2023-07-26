@@ -1,0 +1,53 @@
+<h2>hi!<%= current_user.name %></h2><br>
+
+<%= form_with model: @case do |form| %>
+  <div>
+    <%= form.label :case_name %><br>
+    <%= form.text_field :case_name %>
+  </div>
+
+  <div>
+    <%= form.label :case_no %><br>
+    <%= form.text_field :case_no %>
+  </div>
+
+  <div>
+    <%= form.label :case_description %><br>
+    <%= form.text_field :case_description %>
+  </div>
+
+  <div class="field form-group">
+  <%= form.label :case_status %><br>
+  <%= form.select :case_status, {"running"=> :running,"closed"=> :closed, "pending"=> :pending,"dismissed"=> :dismissed}, {} %><br>
+  </div>                                                                                                                                                                                                                                         
+
+  <div>
+    <%= form.label :court_name%><br>
+    <%= form.text_field :court_name %>
+  </div>
+
+  <div>
+    <%= form.label :filing_date %><br>
+    <%= form.date_field :filing_date %>
+  </div>
+
+  <div>
+    <%= form.label :Hearing_date %><br>
+    <%= form.date_field :Hearing_date %>
+  </div>
+
+  <div>
+    <%= form.label :case_category %><br>
+    <%= form.text_field :case_category %>
+  </div>
+
+  <div>
+    <%= form.label :Additional_notes %><br>
+    <%= form.text_field :additional_notes %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>

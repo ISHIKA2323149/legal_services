@@ -1,0 +1,8 @@
+<h2>case_name:</h2>
+<%= @case.case_name %>
+<h2>case_no:</h2>
+<%= @case.case_no %><br>
+<% if @case.user_id == current_user.id %>
+  <%= link_to "Edit", edit_case_path%>
+  <%= button_to "Delete", cases_path, method: :delete %>
+<% end %>

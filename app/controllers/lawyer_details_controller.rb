@@ -27,7 +27,6 @@ class LawyerDetailsController < ApplicationController
   private
 
   def set_params
-    params.require(:lawyer_detail).permit(:license_no, :practice_court_name, :practice_field_name, :experience, :city,
-                                          :consultation_fees)
+    params.require(:lawyer_detail).permit(:license_no, :practice_court_name, :practice_field_name, :experience, :city, :consultation_fees)
   end
 end
