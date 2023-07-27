@@ -33,9 +33,14 @@
             <%= link_to "THREADS", forum_threads_path, method: :get %>
             <%= link_to "LAWYERS", lawyer_details_path, method: :get %>
             <%= link_to "CHAT", rooms_path %>
-            <%= link_to "PROFILE", cases_path, method: :get %>
             <% if user_signed_in? %>
             <a><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></a>
+            <%= link_to "EDIT", edit_user_registration_path %>
+            <% if current_user.image.attached? %>
+              <%= link_to cases_path do %>
+                <%= image_tag(current_user.image, style: "display: inline-block; height:50px; width: 50px; border-radius: 50%;") %>
+              <% end %>
+            <% end %>
             <% else %>
             <%= link_to "SIGN IN", new_user_session_path %>
             <% end %>
@@ -45,9 +50,14 @@
             <%= link_to "THREADS", forum_threads_path, method: :get %>
             <%= link_to "LAWYERS", lawyer_details_path, method: :get %>
             <%= link_to "CHAT", rooms_path %>
-            <%= link_to "PROFILE", cases_path, method: :get %>
             <% if user_signed_in? %>
             <a><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></a>
+            <%= link_to "EDIT", edit_user_registration_path %>
+            <% if current_user.image.attached? %>
+              <%= link_to cases_path do %>
+                <%= image_tag(current_user.image, style: "display: inline-block; height:50px; width: 50px; border-radius: 50%;") %>
+              <% end %>
+            <% end %>
             <% else %>
             <%= link_to "SIGN IN", new_user_session_path %>
             <% end %>

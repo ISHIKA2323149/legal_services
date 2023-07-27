@@ -1,6 +1,20 @@
-<h1>CASES</h1>
-<% @cases.each do |cases|%><br>
-  <%= (link_to cases.case_name,cases) if (cases.user_id == current_user.id) %>
-<%end%>
-<br>
-<%= link_to "Add Case", new_case_path, method: :new %> 
+<div class = "container-mt-5">
+<div class = "row">
+<div class = "col-4">
+  <% if current_user.image.attached? %>
+    <%= image_tag(current_user.image, style: " display: inline-block; height:150px; width: 150px; border-radius: 100%; object-fit: cover;") %>
+  <% end %>
+  <div class = "col-8">
+    <h1><%= current_user.name %></h1>
+  </div>
+  <h1>CASES</h1>
+  <% @cases.each do |cases|%><br>
+    <%= (link_to cases.case_name,cases) if (cases.user_id == current_user.id) %>
+  <%end%>
+  <br>
+  <%= link_to "Add Case", new_case_path, method: :new %>
+</div>
+</div>
+</div>
+
+ 
