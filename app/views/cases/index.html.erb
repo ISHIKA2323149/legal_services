@@ -15,6 +15,10 @@
             <div class="profile-image">
               <%= image_tag(current_user.image, style: "height:150px; width: 150px; border-radius: 100%; object-fit: cover;") %>
             </div>
+          <% else %>
+            <div class = "profile-image">
+              <%= image_tag("default_profile.png", style: "display: inline-block; height:50px; width: 50px; border-radius: 50%;") %>
+            </div>
           <% end %>
           <div class="profile-info">
             <h1><%= current_user.name %></h1>

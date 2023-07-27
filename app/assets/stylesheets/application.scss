@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
- 
+
 
 *{
     margin: 60;
@@ -59,7 +59,7 @@
 
   .topnav a:hover {
   background-color: #d6b791;
-  color: black; 
+  color: black;
   }
 
   .topnav a.active {
@@ -72,6 +72,12 @@
     float: right;
   }
 
+  .topnav a.signin{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
 
 .center{
     font-size: 10px;
@@ -81,11 +87,11 @@
     padding: 30px;
     text-align: center;
     position: absolute;
-   
+
 }
 
 body {
-  overflow: hidden;
+  overflow-y: scroll;
 }
 .msg-form {
   width: 80%;

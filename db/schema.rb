@@ -128,8 +128,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_060548) do
   create_table "news", force: :cascade do |t|
     t.string "title"
     t.string "body"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_news_on_user_id"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -168,6 +170,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_060548) do
   add_foreign_key "lawyer_details", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "news", "users"
   add_foreign_key "participants", "rooms"
   add_foreign_key "participants", "users"
 end

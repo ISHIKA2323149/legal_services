@@ -11,13 +11,35 @@
 </head>
 <body>
 <div class="main-carousel">
-  <div class="cell"><img src = "assets/Child-Custody.jpg"></div>
+
   <div class="cell"><img src = "assets/CivilLaw.jpg"></div>
   <div class="cell"><img src = "assets/business.jpg"></div>
   <div class="cell"><img src = "assets/Property .jpg"></div>
   <div class="cell"><img src = "assets/divorce.jpg"></div>
-  
+  <div class="cell"><img src = "assets/Child-Custody.jpg"></div>
+  <div class="cell"><img src = "assets/contract.png"></div>
+
 </div>
+
+<div class="consult-now">
+    <%= link_to rooms_path do %>
+    <button>CONSULT NOW</button>
+    <% end %>
+</div>
+
+ <div class="about-section">
+    <p>Welcome to our Online Legal Services Platform! We are dedicated to providing accessible and reliable legal assistance to individuals and businesses alike. Our team of experienced attorneys specializes in various areas of law, including Child Custody, Civil Law, Business Law, Property Law, and Divorce. Whether you need legal advice, representation, or assistance with legal documentation, we are here to help. Our mission is to make the legal process seamless and convenient for you, so you can focus on what matters most. Don't hesitate to contact us through the "Consult Now" button above to get started on resolving your legal matters.</p>
+ </div>
+
+  <div class="contact-section">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or need further information, feel free to reach out to our team. We are here to assist you!</p>
+    <ul>
+      <li>Email: ishikaupadhyay@legalservices.com</li>
+      <li>Phone: +91 9977794076</li>
+    </ul>
+  </div>
+
 
 <script src= "https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script type= "text/javascript">
@@ -25,7 +47,7 @@
   cellAlign: 'center',
   WrapAround:true,
   freeScroll:true,
-  groupCells:1,
+  groupCells:3,
 
 });
 </script>
