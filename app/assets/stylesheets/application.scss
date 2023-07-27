@@ -65,6 +65,11 @@
   .topnav a.active {
   background-color: #d6b791;
   color: black;
+  padding: 20px;
+  }
+
+  .topnav a.signout{
+    float: right;
   }
 .center{
     font-size: 10px;

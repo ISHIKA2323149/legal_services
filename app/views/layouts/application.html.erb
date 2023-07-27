@@ -34,8 +34,7 @@
             <%= link_to "LAWYERS", lawyer_details_path, method: :get %>
             <%= link_to "CHAT", rooms_path %>
             <% if user_signed_in? %>
-            <a><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></a>
-            <%= link_to "EDIT", edit_user_registration_path %>
+            <a class="signout"><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></a>
             <% if current_user.image.attached? %>
               <%= link_to cases_path do %>
                 <%= image_tag(current_user.image, style: "display: inline-block; height:50px; width: 50px; border-radius: 50%;") %>
@@ -52,7 +51,6 @@
             <%= link_to "CHAT", rooms_path %>
             <% if user_signed_in? %>
             <a><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></a>
-            <%= link_to "EDIT", edit_user_registration_path %>
             <% if current_user.image.attached? %>
               <%= link_to cases_path do %>
                 <%= image_tag(current_user.image, style: "display: inline-block; height:50px; width: 50px; border-radius: 50%;") %>

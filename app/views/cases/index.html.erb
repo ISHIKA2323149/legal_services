@@ -6,13 +6,15 @@
   <% end %>
   <div class = "col-8">
     <h1><%= current_user.name %></h1>
+    <%= link_to "EDIT PROFILE", edit_user_registration_path %>
   </div>
   <h1>CASES</h1>
   <% @cases.each do |cases|%><br>
     <%= (link_to cases.case_name,cases) if (cases.user_id == current_user.id) %>
   <%end%>
   <br>
-  <%= link_to "Add Case", new_case_path, method: :new %>
+  <%= link_to "Add Case", new_case_path, method: :new %><BR>
+  
 </div>
 </div>
 </div>
