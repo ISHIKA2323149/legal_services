@@ -3,40 +3,32 @@
 <head>
   <meta name= "viewport" content="width=device-width, initial-scale=1.0">
   <title>ONLINE LEGAL SERVICES PLATFORM</title>
+
+  <!-- ===========FONTAWESOME cdn LINK ========= --->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel = "stylesheet" href ="style.scss">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
+<div class="main-carousel">
+  <div class="cell"><img src = "assets/Child-Custody.jpg"></div>
+  <div class="cell"><img src = "assets/CivilLaw.jpg"></div>
+  <div class="cell"><img src = "assets/business.jpg"></div>
+  <div class="cell"><img src = "assets/Property .jpg"></div>
+  <div class="cell"><img src = "assets/divorce.jpg"></div>
+  
+</div>
 
-  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="1500">
-        <img src="assets/Child-Custody.jpg" alt="property img">
-      </div>
-      <div class="carousel-item" data-bs-interval="1500">
-        <img src="/assets/Business-Law.webp" alt="child img">
-      </div>
-      <div class="carousel-item" data-bs-interval="1500">
-        <img src="/assets/civil-law.jpg" alt="civil img">
-      </div>
-      <div class="carousel-item" data-bs-interval="1500">
-        <img src="/assets/divorce-case-investigation.jpg" class="w-100px h-100" alt=" divorce img">
-      </div>
-      <div class="carousel-item" data-bs-interval="1500">
-        <img src="/assets/images.jpg" class="w-100px h-100" alt=" images img">
-      </div>
-      <div class="carousel-item" data-bs-interval="1500">
-        <img src="/assets/business.jpeg" alt="business img">
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
+<script src= "https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script type= "text/javascript">
+  $('.main-carousel').flickity({
+  cellAlign: 'center',
+  WrapAround:true,
+  freeScroll:true,
+  groupCells:1,
 
+});
+</script>
 
 </body>
 </html>
