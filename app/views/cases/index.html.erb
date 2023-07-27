@@ -1,22 +1,47 @@
-<div class = "container-mt-5">
-<div class = "row">
-<div class = "col-4">
-  <% if current_user.image.attached? %>
-    <%= image_tag(current_user.image, style: " display: inline-block; height:150px; width: 150px; border-radius: 100%; object-fit: cover;") %>
-  <% end %>
-  <div class = "col-8">
-    <h1><%= current_user.name %></h1>
-    <%= link_to "EDIT PROFILE", edit_user_registration_path %>
-  </div>
-  <h1>CASES</h1>
-  <% @cases.each do |cases|%><br>
-    <%= (link_to cases.case_name,cases) if (cases.user_id == current_user.id) %>
-  <%end%>
-  <br>
-  <%= link_to "Add Case", new_case_path, method: :new %><BR>
-  
-</div>
-</div>
-</div>
+<!-- Your HTML file -->
 
- 
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+</head>
+<body>
+  <div class="container-mt-5">
+    <table class="dashboard-table">
+      <tr>
+        <td class="profile-section">
+          <% if current_user.image.attached? %>
+            <div class="profile-image">
+              <%= image_tag(current_user.image, style: "height:150px; width: 150px; border-radius: 100%; object-fit: cover;") %>
+            </div>
+          <% end %>
+          <div class="profile-info">
+            <h1><%= current_user.name %></h1>
+            <%= link_to "EDIT PROFILE", edit_user_registration_path, class: "edit-profile-link" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="cases-section">
+          <h1>CASES</h1>
+          <% if @cases.any? %>
+            <ul class="case-list">
+              <% @cases.each do |cases| %>
+                <% if cases.user_id == current_user.id %>
+                  <li class="case-list-item">
+                    <%= link_to cases.case_name, cases, class: "case-link" %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No cases found.</p>
+          <% end %>
+          <%= link_to "Add Case", new_case_path, class: "add-case-link" %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
