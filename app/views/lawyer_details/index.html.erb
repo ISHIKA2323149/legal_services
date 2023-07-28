@@ -1,4 +1,7 @@
 <h1>Lawyer Details</h1>
-<% @lawyer_details.each do |lawyer_detail|%><br>
-  =><%= link_to lawyer_detail.user.name, lawyer_detail %><br>
+<% @lawyer_details.each do |lawyer_detail|%>
+    <% if lawyer_detail.user.id != current_user.id %><br>
+  =><%= link_to lawyer_detail.user.name, lawyer_detail %>
+    <%= button_to 'hire this lawyer', hire_lawyer_path, method: :post, params:{lawyer_email: lawyer_detail.user.email} %>
+    <% end %>
 <%end%>

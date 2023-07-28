@@ -43,7 +43,23 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+
+  config.action_mailer.perform_deliveries = true
+
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+  address: 'smtp.mailtrap.io',
+  port: 587,
+  domain: 'localhost',
+  user_name: '40a4279e566ad4',
+  password: '18b4324291b8c0',
+  authentication: :cram_md5
+  }
+
 
   # Raise exceptions for disallowed deprecations.
   config.active_support.disallowed_deprecation = :raise

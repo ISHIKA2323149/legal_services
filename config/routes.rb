@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
+
+  post '/users/hire', to: 'users#hire_lawyer', as: 'hire_lawyer'
 end
