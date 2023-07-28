@@ -1,7 +1,7 @@
 <div id="chatroom_container" class="row bg-light text-dark">
   <div id="side_panel" class="col-md-3 col-sm-4">
     <h5>Hi! <%= current_user.name %> </h5>
-    <div><h4> Users </h4></div>
+    <div><h4> Lawyers </h4></div>
     <%= turbo_stream_from "users" %>
     <div id="users">
       <%= render @users %>
