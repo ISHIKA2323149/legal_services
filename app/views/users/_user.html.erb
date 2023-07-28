@@ -1,5 +1,5 @@
 <div>
   <% if (user.role == "lawyer") %>
-    <%= link_to user.name, user %>  
+    <%= link_to user.name, user %>-<%= user.lawyer_detail.practice_field_name %>  
   <% end %>
 </div>
