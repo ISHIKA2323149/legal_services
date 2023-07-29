@@ -1,17 +1,76 @@
-<h1>NEW THREAD</h1>
-<%= form_for @forum_thread do |f| %>
-  <div class = "form-group" >
+<h1 class="form-title">NEW THREAD</h1>
+<%= form_for @forum_thread, html: { class: "blog-addition-form" } do |f| %>
+  <div class="form-group">
     <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
   </div>
 
   <%= f.fields_for :forum_posts do |p| %>
-    <div class = "form-group">
+    <div class="form-group">
       <%= p.text_area :body, placeholder: "Add A COMMENT", rows: 10, class: "form-control" %>
     </div>
   <% end %>
 
-
-  <div class = "form_group">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+<style>
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 28px;
+    text-transform: uppercase;
+  }
+
+  .blog-addition-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    width: 100%;
+    border: 2px solid #17a2b8;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 16px;
+    color: #555;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: #138496;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(23, 162, 184, 0.5);
+  }
+
+  .btn-primary {
+    background-color: #17a2b8;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-primary:hover {
+    background-color: #138496;
+  }
+</style>

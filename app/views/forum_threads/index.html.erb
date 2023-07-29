@@ -1,11 +1,54 @@
 <h1>All Forum Threads</h1>
 
 <% if @forum_threads.any? %>
-  <ul>
+  <div class="forum-threads-container">
     <% @forum_threads.each do |forum_thread| %>
-      <li><%= link_to forum_thread.subject, forum_thread_path(forum_thread) %></li>
+      <div class="forum-thread-card">
+        <%= link_to forum_thread.subject, forum_thread_path(forum_thread), class: "forum-thread-title" %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
   <p>No forum threads found.</p>
 <% end %>
+<style>
+  h1 {
+    text-align: center;
+  }
+
+  .forum-threads-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .forum-thread-card {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .forum-thread-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .forum-thread-title {
+    font-size: 18px;
+    color: #17a2b8;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .forum-thread-title:hover {
+    color: #138496;
+  }
+
+  p {
+    text-align: center;
+  }
+</style>

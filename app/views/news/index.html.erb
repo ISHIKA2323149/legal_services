@@ -1,7 +1,67 @@
 <h1>NEWS</h1>
-<% @news.each do |news|%><br>
-  -<%= link_to news.title,news %> <br> 
-<%end%>
+<div class="news-table-container">
+  <table class="news-table">
+    <tbody>
+      <% @news.each do |news| %>
+        <tr>
+          <td><%= link_to news.title, news %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<style>
+  h1 {
+    text-align: center;
+  }
 
+  .news-table-container {
+    max-width: 800px;
+    margin: 0 auto;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
 
+  .news-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
 
+  .news-table tr {
+    border-bottom: 2px solid #eee;
+    transition: background-color 0.2s;
+  }
+
+  .news-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .news-table td {
+    padding: 12px;
+    text-align: left;
+    word-wrap: break-word;
+    white-space: pre-line;
+    font-size: 16px;
+    color: #555;
+  }
+
+  .news-table td:first-child {
+    font-weight: bold;
+    color: #17a2b8;
+    max-width: 200px;
+  }
+
+  .news-table td a {
+    text-decoration: none;
+    color: #138496;
+    transition: color 0.2s;
+    display: block;
+  }
+
+  .news-table td a:hover {
+    color: #0c6b73;
+  }
+</style>

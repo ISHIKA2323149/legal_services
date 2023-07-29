@@ -1,101 +1,98 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<style>
+<div class="postcard-form">
+  <%= form_with model: @lawyer_detail, class: "form-horizontal" do |form| %>
+    <div class="form-group">
+      <%= form.label :license_no, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :license_no, class: "form-control" %>
+      </div>
+    </div>
 
-  .form-horizontal {
-    max-width: 900px;
+    <div class="form-group">
+      <%= form.label :practice_court_name, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :practice_court_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :practice_field_name, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :practice_field_name, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :experience, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :experience, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :city, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :city, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :consultation_fees, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :consultation_fees, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<style>
+  .postcard-form {
+    max-width: 600px;
     margin: 0 auto;
     padding: 30px;
-    background-color: #ede6cf; 
-    border-radius: 30px;
-    box-shadow: 10px 10px 20px #cbced1, -10px -10px 20px #ffffff; 
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
   .form-group {
-    margin-bottom: 40px;
-  }
- 
-  .form-group .col-sm-offset-2 {
-    text-align: center;
+    margin-bottom: 20px;
   }
 
   label {
     font-weight: bold;
-    text-align: center;
     color: #333;
+    margin-bottom: 5px;
   }
 
-  /
   .form-control {
-    border: 2px solid #f0f0f0; 
-    border-radius: 0px;
-    color: #333; 
-    background-color: #f0f0f0; 
-    box-shadow: inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff; 
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    background-color: #f0f0f0;
+    box-shadow: inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
   }
-
 
   .btn-primary {
-    background-color: #f0f0f0; 
-    border: 2px solid #f0f0f0; 
+    background-color: #17a2b8;
+    border: none;
     border-radius: 15px;
-    color: #333;
+    color: #fff;
     font-weight: bold;
-    box-shadow: 5px 5px 8px #cbced1, -5px -5px 8px #ffffff;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    width: 100%;
   }
 
   .btn-primary:hover {
-    background-color: #e5e5e5; 
+    background-color: #138496;
   }
 </style>
-
-<%= form_with model: @lawyer_detail, class: "form-horizontal" do |form| %>
-  <div class="form-group">
-    <%= form.label :license_no, class: "control-label col-sm-2" %>
-    <div class="col-sm-10">
-      <%= form.text_field :license_no, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :practice_court_name, class: "control-label col-sm-2" %>
-    <div class="col-sm-10">
-      <%= form.text_field :practice_court_name, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :practice_field_name, class: "control-label col-sm-2" %>
-    <div class="col-sm-10">
-      <%= form.text_field :practice_field_name, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :experience, class: "control-label col-sm-2" %>
-    <div class="col-sm-10">
-      <%= form.text_field :experience, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :city, class: "control-label col-sm-2" %>
-    <div class="col-sm-10">
-      <%= form.text_field :city, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :consultation_fees, class: "control-label col-sm-2" %>
-    <div class="col-sm-10">
-      <%= form.text_field :consultation_fees, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= form.submit "Submit", class: "btn btn-primary" %>
-    </div>
-  </div>
-<% end %>

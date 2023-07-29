@@ -1,13 +1,76 @@
-<h1>THREADS</h1>
-<h2><%= @forum_thread.subject %></h2>
+<div class="threads-container">
+  <h1>THREADS</h1>
+  <div class="thread-card">
+    <h2 class="thread-title"><%= @forum_thread.subject %></h2>
 
-<h3>Forum Posts: </h2>
-<% if @forum_posts.any? %>
-  <div>
-    <% @forum_posts.each do |post| %>
-      =><%= post.body %> - <%= post.user.name %> - <%= post.user.created_at %>
+    <h3>Forum Posts:</h3>
+    <% if @forum_posts.any? %>
+      <div class="forum-posts-container">
+        <% @forum_posts.each do |post| %>
+          <div class="forum-post">
+            <p class="post-body">=<%= post.body %></p>
+            <p class="post-user-info"><%= post.user.name %> - <%= post.user.created_at %></p>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p class="no-posts">No Forum Posts found.</p>
     <% end %>
   </div>
-<% else %>
-  <p> No Forum Posts found. </p>
-<% end %>
+</div>
+<style>
+  .threads-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  .thread-card {
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+  .thread-title {
+    text-align: center;
+    color: red;
+  }
+
+  .forum-posts-container {
+    margin-top: 20px;
+  }
+
+  .forum-post {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .post-body {
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    margin: 0;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+
+  .post-user-info {
+    text-align: center;
+    color: #17a2b8;
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .no-posts {
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+</style>
