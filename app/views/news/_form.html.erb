@@ -1,16 +1,33 @@
+<h1 class="title">ADD NEWS</h1>
+<%= form_with model: @news do |form| %>
+  <div class="form-group">
+    <%= form.label :title, class: "form-label" %><br>
+    <%= form.text_field :title, class: "colorful-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :body, class: "form-label" %><br>
+    <%= form.text_area :body, class: "colorful-input" %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit "Submit", class: "colorful-button" %>
+  </div>
+<% end %>
+
 <style>
   form {
     max-width: 500px;
     margin: 0px auto;
-    background-color: #f8f9fa; /* Light gray background */
+    background-color: #f8f9fa;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   }
 
   .title{
     text-align: center;
-    color: blue;
+    color: black;
   }
   .form-label {
     font-weight: bold;
@@ -50,20 +67,3 @@
     background-color: #138496;
   }
 </style>
-
-<h1 class="title">ADD NEWS</h1>
-<%= form_with model: @news do |form| %>
-  <div class="form-group">
-    <%= form.label :title, class: "form-label" %><br>
-    <%= form.text_field :title, class: "colorful-input" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :body, class: "form-label" %><br>
-    <%= form.text_area :body, class: "colorful-input" %>
-  </div>
-
-  <div class="text-center">
-    <%= form.submit "Submit", class: "colorful-button" %>
-  </div>
-<% end %>
