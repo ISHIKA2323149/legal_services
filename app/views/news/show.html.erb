@@ -6,8 +6,10 @@
   <div class="news-content"><%= @news.body %></div>
 
   <div class="news-actions">
+  <% if News.find_by(id: current_user.id) %>
     <%= link_to "Edit", edit_news_path, class: "news-edit-btn" %>
     <%= button_to "Delete", news_path, method: :delete, class: "news-delete-btn", data: { confirm: "Are you sure you want to delete this news item?" } %>
+  <% end %>
   </div>
 </div>
 <style>

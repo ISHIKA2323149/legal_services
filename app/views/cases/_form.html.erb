@@ -1,53 +1,126 @@
-<h2>hi!<%= current_user.name %></h2><br>
+<h2>Hi! <%= current_user.name %></h2>
+<br>
 
-<%= form_with model: @case do |form| %>
-  <div>
-    <%= form.label :case_name %><br>
-    <%= form.text_field :case_name %>
+<form>
+  <div class="field">
+    <label for="case_name">Case Name:</label>
+    <input type="text" id="case_name" name="case_name" value="<%= @case.case_name %>">
   </div>
 
-  <div>
-    <%= form.label :case_no %><br>
-    <%= form.text_field :case_no %>
+  <div class="field">
+    <label for="case_no">Case Number:</label>
+    <input type="text" id="case_no" name="case_no" value="<%= @case.case_no %>">
   </div>
 
-  <div>
-    <%= form.label :case_description %><br>
-    <%= form.text_field :case_description %>
+  <div class="field">
+    <label for="case_description">Case Description:</label>
+    <textarea id="case_description" name="case_description"><%= @case.case_description %></textarea>
   </div>
 
   <div class="field form-group">
-  <%= form.label :case_status %><br>
-  <%= form.select :case_status, {"running"=> :running,"closed"=> :closed, "pending"=> :pending,"dismissed"=> :dismissed}, {} %><br>
-  </div>                                                                                                                                                                                                                                         
-
-  <div>
-    <%= form.label :court_name%><br>
-    <%= form.text_field :court_name %>
+    <label for="case_status">Case Status:</label>
+    <select id="case_status" name="case_status">
+      <option value="running" <%= "selected" if @case.case_status == "running" %>>Running</option>
+      <option value="closed" <%= "selected" if @case.case_status == "closed" %>>Closed</option>
+      <option value="pending" <%= "selected" if @case.case_status == "pending" %>>Pending</option>
+      <option value="dismissed" <%= "selected" if @case.case_status == "dismissed" %>>Dismissed</option>
+    </select>
   </div>
 
-  <div>
-    <%= form.label :filing_date %><br>
-    <%= form.date_field :filing_date %>
+  <div class="field">
+    <label for="court_name">Court Name:</label>
+    <input type="text" id="court_name" name="court_name" value="<%= @case.court_name %>">
   </div>
 
-  <div>
-    <%= form.label :Hearing_date %><br>
-    <%= form.date_field :Hearing_date %>
+  <div class="field">
+    <label for="filing_date">Filing Date:</label>
+    <input type="date" id="filing_date" name="filing_date" value="<%= @case.filing_date %>">
   </div>
 
-  <div>
-    <%= form.label :case_category %><br>
-    <%= form.text_field :case_category %>
+  <div class="field">
+    <label for="Hearing_date">Hearing Date:</label>
+    <input type="date" id="Hearing_date" name="Hearing_date" value="<%= @case.Hearing_date %>">
   </div>
 
-  <div>
-    <%= form.label :Additional_notes %><br>
-    <%= form.text_field :additional_notes %>
+  <div class="field">
+    <label for="case_category">Case Category:</label>
+    <input type="text" id="case_category" name="case_category" value="<%= @case.case_category %>">
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="field">
+    <label for="additional_notes">Additional Notes:</label>
+    <textarea id="additional_notes" name="additional_notes"><%= @case.additional_notes %></textarea>
   </div>
 
-<% end %>
+  <div class="actions">
+    <input type="submit" value="Update">
+  </div>
+</form>
+
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f2f2;
+  }
+
+  h2 {
+    color: black;
+    margin-bottom: 20px;
+  }
+
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .field {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+  }
+
+  .actions {
+    text-align: center;
+  }
+
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>

@@ -4,11 +4,13 @@
     <% if lawyer_detail.user.id != current_user.id %>
       <div class="lawyer-card">
         <h2 class="lawyer-name"><%= link_to lawyer_detail.user.name, lawyer_detail %></h2>
+        <h2 class="lawyer-name"><%= link_to lawyer_detail.practice_field_name, lawyer_detail %></h2>
         <%= button_to 'Hire this lawyer', hire_lawyer_path, method: :post, params: { lawyer_email: lawyer_detail.user.email }, class: 'hire-btn' %>
       </div>
     <% end %>
   <% end %>
 </div>
+
 <style>
   h1 {
     text-align: center;

@@ -11,13 +11,13 @@ class UsersController < ApplicationController
     @messages = @single_room.messages.order(created_at: :asc)
     render 'rooms/index'
   end
-  
+
   def hire_lawyer
     lawyer_email = params[:lawyer_email]
     user_email = current_user.email
     UserMailer.hire_lawyer(lawyer_email, user_email).deliver_now
     redirect_to root_path, notice: 'Email sent to the lawyer'
-  end 
+  end
 
   private
 

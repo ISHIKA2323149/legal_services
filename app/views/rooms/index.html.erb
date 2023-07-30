@@ -5,7 +5,7 @@
     <%= turbo_stream_from "users" %>
     <div id="users">
       <%= render @users %>
-    </div> 
+    </div>
   </div>
   <div id="room_container"
   class="col-md-9 col-sm-8 bg-light text-dark">
@@ -21,3 +21,152 @@
     <% end %>
   </div>
 </div>
+<style>
+  /* Global styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Chatroom container */
+  #chatroom_container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+
+  /* Side panel */
+  #side_panel {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-right: 20px;
+    width: 250px;
+  }
+  #side_panel h5 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+  #users .user-card {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+  }
+  #users .user-card:hover {
+    background-color: #e9e9e9;
+  }
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .user-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: none;
+  }
+  .user-avatar.initials {
+    display: flex;
+  }
+
+  /* Room container */
+  #room_container {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    flex: 1;
+  }
+  #single_room h4 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+  }
+  #messages {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+  }
+  .message-card {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f5f5f5;
+  }
+  .message-card .sender {
+    font-weight: bold;
+    color: #007bff;
+  }
+  .message-card .time {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+  }
+  .message-card.sent {
+    background-color: #e5e5e5;
+    border-color: #e5e5e5;
+    color: #333;
+  }
+  .message-card.sent .sender {
+    font-weight: bold;
+    color: #333;
+  }
+  .message-card.sent .time {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+  }
+
+  /* New message form */
+  .message-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  .message-input {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  .send-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 16px;
+  }
+  .send-button:hover {
+    background-color: #0056b3;
+  }
+</style>

@@ -1,10 +1,72 @@
-<h4>case_name:</h4>
-<%= @case.case_name %>
-<h4>case_no:</h4>
-<%= @case.case_no %><br>
-<h4>case_status:</h4>
-<%= @case.case_status %><br>
-<% if @case.user_id == current_user.id %>
-  <%= link_to "Edit", edit_case_path%>
-  <%= button_to "Delete", cases_path, method: :delete %>
-<% end %>
+<div class="case-details-container">
+  <h4>Case Name:</h4>
+  <p><%= @case.case_name %></p>
+
+  <h4>Case Number:</h4>
+  <p><%= @case.case_no %></p>
+
+  <h4>Case Status:</h4>
+  <p><%= @case.case_status %></p>
+
+  <% if @case.user_id == current_user.id %>
+    <%= link_to "Edit", edit_case_path, class: "edit-btn" %>
+    <%= button_to "Delete", cases_path, method: :delete, class: "delete-btn", data: { confirm: "Are you sure you want to delete this case?" } %>
+  <% end %>
+</div>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f2f2;
+  }
+
+  .case-details-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  h4 {
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+
+  p {
+    margin-bottom: 15px;
+  }
+
+  .edit-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .edit-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .delete-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ff4444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .delete-btn:hover {
+    background-color: #cc0000;
+  }
+</style>

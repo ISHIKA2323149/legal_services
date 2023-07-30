@@ -1,16 +1,70 @@
-<h2>name:</h2>
-<%= @lawyer_detail.user.name %>
-<h2>email:</h2>
-<%= @lawyer_detail.user.email %>
-<h2>license_no:</h2>
-<%= @lawyer_detail.license_no %>
-<h2>practice_court_name:</h2>
-<%= @lawyer_detail.practice_court_name %>
-<h2>practice_field_name:</h2>
-<%= @lawyer_detail.practice_field_name %>
-<h2>experience:</h2>
-<%= @lawyer_detail.experience %>
-<h2>city:</h2>
-<%= @lawyer_detail.city %>
-<h2>consultation_fees:</h2>
-<%= @lawyer_detail.consultation_fees %>
+<table>
+  <tr>
+    <th><h2>Name</h2></th>
+    <td><%= @lawyer_detail.user.name %></td>
+  </tr>
+  <tr>
+    <th><h2>Email</h2></th>
+    <td><%= @lawyer_detail.user.email %></td>
+  </tr>
+  <tr>
+    <th><h2>License No</h2></th>
+    <td><%= @lawyer_detail.license_no %></td>
+  </tr>
+  <tr>
+    <th><h2>Practice Court Name</h2></th>
+    <td><%= @lawyer_detail.practice_court_name %></td>
+  </tr>
+  <tr>
+    <th><h2>Practice Field Name</h2></th>
+    <td><%= @lawyer_detail.practice_field_name %></td>
+  </tr>
+  <tr>
+    <th><h2>Experience</h2></th>
+    <td><%= @lawyer_detail.experience %></td>
+  </tr>
+  <tr>
+    <th><h2>City</h2></th>
+    <td><%= @lawyer_detail.city %></td>
+  </tr>
+  <tr>
+    <th><h2>Consultation Fees</h2></th>
+    <td><%= @lawyer_detail.consultation_fees %></td>
+  </tr>
+</table>
+
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+
+  th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+
+  h2 {
+    margin: 5px 0;
+    font-size: 20px;
+    color: black;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #e6e6e6;
+  }
+</style>
