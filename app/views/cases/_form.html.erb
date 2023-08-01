@@ -1,126 +1,121 @@
 <h2>Hi! <%= current_user.name %></h2>
 <br>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<form>
-  <div class="field">
-    <label for="case_name">Case Name:</label>
-    <input type="text" id="case_name" name="case_name" value="<%= @case.case_name %>">
-  </div>
+<div class="postcard-form">
+  <%= form_with model: @case, class: "form-horizontal" do |form| %>
+    <div class="form-group">
+      <%= form.label :case_name, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :case_name, class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <label for="case_no">Case Number:</label>
-    <input type="text" id="case_no" name="case_no" value="<%= @case.case_no %>">
-  </div>
+    <div class="form-group">
+      <%= form.label :case_no, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :case_no, class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <label for="case_description">Case Description:</label>
-    <textarea id="case_description" name="case_description"><%= @case.case_description %></textarea>
-  </div>
+    <div class="form-group">
+      <%= form.label :case_description, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_area :case_description, class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field form-group">
-    <label for="case_status">Case Status:</label>
-    <select id="case_status" name="case_status">
-      <option value="running" <%= "selected" if @case.case_status == "running" %>>Running</option>
-      <option value="closed" <%= "selected" if @case.case_status == "closed" %>>Closed</option>
-      <option value="pending" <%= "selected" if @case.case_status == "pending" %>>Pending</option>
-      <option value="dismissed" <%= "selected" if @case.case_status == "dismissed" %>>Dismissed</option>
-    </select>
-  </div>
+    <div class="form-group">
+      <%= form.label :court_name, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :court_name, class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <label for="court_name">Court Name:</label>
-    <input type="text" id="court_name" name="court_name" value="<%= @case.court_name %>">
-  </div>
+    <div class="form-group">
+      <%= form.label :case_status, class: "control-label col-sm-2"%>
+      <div class = "col-sm-10">
+        <%= form.select :case_status, {"running"=> :running,"pending"=> :pending,"closed" => :closed, "dismissed" => :dismissed}, {} , class: "form-control"%>
+      </div>
+    </div>
 
-  <div class="field">
-    <label for="filing_date">Filing Date:</label>
-    <input type="date" id="filing_date" name="filing_date" value="<%= @case.filing_date %>">
-  </div>
+    <div class="form-group">
+      <%= form.label :filing_date, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.date_field :filing_date, class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <label for="Hearing_date">Hearing Date:</label>
-    <input type="date" id="Hearing_date" name="Hearing_date" value="<%= @case.Hearing_date %>">
-  </div>
+    <div class="form-group">
+      <%= form.label :Hearing_date, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.date_field :Hearing_date, class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <label for="case_category">Case Category:</label>
-    <input type="text" id="case_category" name="case_category" value="<%= @case.case_category %>">
-  </div>
+    <div class="form-group">
+      <%= form.label :case_category, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :case_category, class: "form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <label for="additional_notes">Additional Notes:</label>
-    <textarea id="additional_notes" name="additional_notes"><%= @case.additional_notes %></textarea>
-  </div>
+    <div class="form-group">
+      <%= form.label :additional_notes, class: "control-label col-sm-2" %>
+      <div class="col-sm-10">
+        <%= form.text_field :additional_notes, class: "form-control" %>
+      </div>
+    </div> 
 
-  <div class="actions">
-    <input type="submit" value="Update">
-  </div>
-</form>
-
-
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= form.submit "Submit", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f2f2f2;
-  }
-
-  h2 {
-    color: black;
-    margin-bottom: 20px;
-  }
-
-  form {
-    max-width: 500px;
+  .postcard-form {
+    max-width: 600px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 
-  .field {
+  .form-group {
     margin-bottom: 20px;
   }
 
   label {
-    display: block;
     font-weight: bold;
     color: #333;
+    margin-bottom: 5px;
   }
 
-  input[type="text"],
-  input[type="date"],
-  select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
+  .form-control {
+    border: 2px solid #ccc;
     border-radius: 5px;
+    color: #333;
+    background-color: #f0f0f0;
+    box-shadow: inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
   }
 
-  textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-  }
-
-  .actions {
-    text-align: center;
-  }
-
-  input[type="submit"] {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+  .btn-primary {
+    background-color: #17a2b8;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: 15px;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    width: 100%;
   }
 
-  input[type="submit"]:hover {
-    background-color: #0056b3;
+  .btn-primary:hover {
+    background-color: #138496;
   }
 </style>

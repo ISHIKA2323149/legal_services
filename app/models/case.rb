@@ -26,6 +26,8 @@
 #
 class Case < ApplicationRecord
     belongs_to :user
-
+    validates_uniqueness_of :case_no
+    validates_presence_of :Hearing_date,:case_category,:case_description,:case_name,:case_no,:case_status,:court_name,:filing_date
     enum case_status: { running: 0, closed: 1 , pending: 2, dismissed: 3}
-end
+  end
+  

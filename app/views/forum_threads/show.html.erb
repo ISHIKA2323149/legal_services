@@ -8,7 +8,7 @@
       <div class="forum-posts-container">
         <% @forum_posts.each do |post| %>
           <div class="forum-post">
-            <p class="post-body">=<%= post.body %></p>
+            <p class="post-body"><%= post.body %></p>
             <p class="post-user-info"><%= post.user.name %> - <%= post.user.created_at %></p>
           </div>
         <% end %>
