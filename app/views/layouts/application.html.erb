@@ -29,7 +29,7 @@
               <%= link_to "ADD DETAILS", new_lawyer_detail_path , method: :new %>
               <%= link_to "ADD NEWS", new_news_path %>
               <%= link_to "NEWS", news_index_path %>
-              <%= link_to "Q/A FORUM", new_forum_thread_path , method: :new%>
+              <%= link_to "FORUM", new_forum_thread_path , method: :new%>
               <%= link_to "THREADS", forum_threads_path, method: :get %>
               <%= link_to "LAWYERS", lawyer_details_path, method: :get %>
                <a class="signout"><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %></a>
@@ -45,7 +45,7 @@
             <% else %>
               <% if user_signed_in? %>
               <%= link_to "NEWS", news_index_path %>
-              <%= link_to "Q/A FORUM", new_forum_thread_path , method: :new%>
+              <%= link_to "FORUM", new_forum_thread_path , method: :new%>
               <%= link_to "THREADS", forum_threads_path, method: :get %>
               <%= link_to "LAWYERS", lawyer_details_path, method: :get %>
               <a class="signout"><%= button_to "LOG OUT", destroy_user_session_path, method: :delete %>
