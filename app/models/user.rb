@@ -36,4 +36,6 @@ class User < ApplicationRecord
   has_one :lawyer_detail, dependent: :destroy
   has_many :cases, dependent: :destroy
   has_many :news
+
+
 end

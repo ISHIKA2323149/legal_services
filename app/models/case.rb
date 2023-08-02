@@ -29,5 +29,10 @@ class Case < ApplicationRecord
   validates_uniqueness_of :case_no
   validates_presence_of :Hearing_date,:case_category,:case_description,:case_name,:case_no,:case_status,:court_name,:filing_date
   enum case_status: { running: 0, closed: 1 , pending: 2, dismissed: 3}
+
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["Hearing_date", "additional_notes", "case_category", "case_description", "case_name", "case_no", "case_status", "court_name", "created_at", "filing_date", "id", "updated_at", "user_id"]
+  end
 end
   

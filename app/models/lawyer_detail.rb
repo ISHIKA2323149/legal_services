@@ -35,4 +35,8 @@ class LawyerDetail < ApplicationRecord
       errors.add(:user, "already has a lawyer detail")
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["city", "consultation_fees", "created_at", "experience", "id", "license_no", "practice_court_name", "practice_field_name", "updated_at", "user_id"]
+  end
 end
