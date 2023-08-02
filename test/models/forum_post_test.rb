@@ -9,6 +9,11 @@
 #  forum_thread_id :integer
 #  user_id         :integer
 #
+# Indexes
+#
+#  index_forum_posts_on_forum_thread_id  (forum_thread_id)
+#  index_forum_posts_on_user_id          (user_id)
+#
 require 'test_helper'
 
 class ForumPostTest < ActiveSupport::TestCase

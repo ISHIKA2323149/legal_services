@@ -31,7 +31,7 @@ class LawyerDetail < ApplicationRecord
   private
 
   def user_can_have_one_lawyer_detail
-    if user.lawyer_detail && user.lawyer_detail != self
+    if user.lawyer_detail
       errors.add(:user, "already has a lawyer detail")
     end
   end

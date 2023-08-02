@@ -8,6 +8,10 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #
+# Indexes
+#
+#  index_forum_threads_on_user_id  (user_id)
+#
 class ForumThread < ApplicationRecord
   belongs_to :user
   has_many :forum_posts

@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :cases
   resources :news
-  resources :forum_threads
-  resources :lawyer_details
-  resources :rooms do
-    resources :messages
+  resources :forum_threads, except: [:edit, :update, :destroy]
+  resources :lawyer_details, except: [:destroy]
+  resources :rooms, only: [:show, :index] do
+    resources :messages, only: [:create]
   end
 
   post '/users/hire', to: 'users#hire_lawyer', as: 'hire_lawyer'

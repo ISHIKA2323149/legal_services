@@ -1,14 +1,15 @@
 class Ability
   include CanCan::Ability
-  
+
   def initialize(user)
-    user ||= User.new 
+    user ||= User.new
+
     if user.role == 'user'
       can :create, ForumThread
       can :read, LawyerDetail
       can :read, ForumThread
-      can :read, News  
-      
+      can :read, News
+
     elsif user.role == 'lawyer'
       can :update, News do |news|
         news.user == user
@@ -34,7 +35,6 @@ class Ability
       can :read, News
       can :read, LawyerDetail
       can :create, LawyerDetail
-
     end
   end
 end

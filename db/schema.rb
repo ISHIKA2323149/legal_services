@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_27_060548) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_02_103506) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -87,6 +87,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_060548) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["forum_thread_id"], name: "index_forum_posts_on_forum_thread_id"
+    t.index ["user_id"], name: "index_forum_posts_on_user_id"
   end
 
   create_table "forum_threads", force: :cascade do |t|
@@ -94,6 +96,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_27_060548) do
     t.string "subject"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_forum_threads_on_user_id"
   end
 
   create_table "homes", force: :cascade do |t|

@@ -1,17 +1,18 @@
 class NewsController < ApplicationController
-  before_action :find_params ,only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource param_method: :set_params  
+  before_action :find_news, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource param_method: :set_params
+
   def index
     @news = News.all
   end
 
   def new
-    @news = News.new
+    @news = current_user.news.build
   end
 
   def create
-    @news = News.new(set_params)
-    @news.user_id = current_user.id
+    @news = current_user.news.build(set_params)
+
     if @news.save
       redirect_to root_path
     else
@@ -24,7 +25,6 @@ class NewsController < ApplicationController
 
   def edit
   end
-
 
   def update
     if @news.update(set_params)
@@ -45,8 +45,7 @@ class NewsController < ApplicationController
     params.require(:news).permit(:title, :body)
   end
 
-  def find_params
-    @news  = News.find(params[:id])
+  def find_news
+    @news = News.find(params[:id])
   end
-  
 end

@@ -10,7 +10,7 @@ gem 'rails', '~> 7.0.6'
 gem 'sprockets-rails'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'sqlite3'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '~> 5.0'
@@ -30,6 +30,7 @@ gem 'sassc-rails'
 gem 'turbo-rails'
 gem "byebug"
 gem "cancancan"
+
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
@@ -70,6 +71,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'web-console'
+  gem "rails_best_practices"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

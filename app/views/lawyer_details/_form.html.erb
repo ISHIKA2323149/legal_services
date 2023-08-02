@@ -51,6 +51,17 @@
       </div>
     </div>
   <% end %>
+  <% if @lawyer_detail.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>Errors:</h4>
+      <ul>
+        <% @lawyer_detail.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
 </div>
 <style>
   .postcard-form {
