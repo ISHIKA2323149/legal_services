@@ -6,10 +6,16 @@
   <div class="news-content"><%= @news.body %></div>
 
   <div class="news-actions">
-  <% if @news.id == current_user.id %>
-    <%= link_to "Edit", edit_news_path, class: "news-edit-btn" %>
-    <%= button_to "Delete", news_path, method: :delete, class: "news-delete-btn"%>
-  <% end %>
+    <% if @news.user_id == current_user.id %>
+      <% if can? :update,@news %>
+        <%= link_to "Edit", edit_news_path, class: "news-edit-btn" %>
+      <% end %>
+    <% if @news.user_id == current_user.id %>
+      <% if can? :destroy,@news %>
+      <%= button_to "Delete", news_path, method: :delete, class: "news-delete-btn"%>
+      <% end %>
+    <% end %>
+    <% end %>
   </div>
 </div>
 

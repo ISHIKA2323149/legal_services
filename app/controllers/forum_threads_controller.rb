@@ -1,6 +1,7 @@
 class ForumThreadsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_forum_thread, except: %i[index new create]
+  load_and_authorize_resource
 
   def index
     @forum_threads = ForumThread.all

@@ -33,7 +33,9 @@
   </tr>
 </table>
   <% if @lawyer_detail.user_id == current_user.id %>
-    <%= link_to "EDIT", edit_lawyer_detail_path %>
+    <% if can? :update,@lawyer_detail %>
+      <%= link_to "EDIT", edit_lawyer_detail_path %>
+    <% end %>
   <% end %>
 <style>
   table {

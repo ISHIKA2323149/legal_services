@@ -29,6 +29,7 @@ gem 'rubocop', require: false
 gem 'sassc-rails'
 gem 'turbo-rails'
 gem "byebug"
+gem "cancancan"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
