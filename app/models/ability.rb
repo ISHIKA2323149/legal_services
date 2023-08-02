@@ -6,7 +6,8 @@ class Ability
     if user.role == 'user'
       can :create, ForumThread
       can :read, LawyerDetail
-      can :read, ForumThread  
+      can :read, ForumThread
+      can :read, News  
       
     elsif user.role == 'lawyer'
       can :update, News do |news|
@@ -29,6 +30,7 @@ class Ability
       can :create, News
       can :read, News
       can :read, LawyerDetail
+      can :create, LawyerDetail
 
     end
   end

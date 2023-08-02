@@ -1,7 +1,6 @@
 class NewsController < ApplicationController
   before_action :find_params ,only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource param_method: :my_sanitizer
-  
+  load_and_authorize_resource param_method: :set_params  
   def index
     @news = News.all
   end
@@ -49,8 +48,5 @@ class NewsController < ApplicationController
   def find_params
     @news  = News.find(params[:id])
   end
-
-  def my_sanitizer
-    params.require(:news).permit(:title, :body)
-  end
+  
 end

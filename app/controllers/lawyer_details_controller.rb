@@ -1,7 +1,7 @@
 class LawyerDetailsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :find_params ,only: [:show, :edit, :update]
-  load_and_authorize_resource
+  load_and_authorize_resource param_method: :set_params 
 
   def index
     @lawyer_details = LawyerDetail.all
