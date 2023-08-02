@@ -33,7 +33,4 @@ class Message < ApplicationRecord
     throw :abort unless is_participant
   end
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["body", "created_at", "id", "updated_at", "user_id"]
-  end
 end
