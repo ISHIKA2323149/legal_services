@@ -1,42 +1,73 @@
-<table>
-  <tr>
-    <th><h2>Name</h2></th>
-    <td><%= @lawyer_detail.user.name %></td>
-  </tr>
-  <tr>
-    <th><h2>Email</h2></th>
-    <td><%= @lawyer_detail.user.email %></td>
-  </tr>
-  <tr>
-    <th><h2>License No</h2></th>
-    <td><%= @lawyer_detail.license_no %></td>
-  </tr>
-  <tr>
-    <th><h2>Practice Court Name</h2></th>
-    <td><%= @lawyer_detail.practice_court_name %></td>
-  </tr>
-  <tr>
-    <th><h2>Practice Field Name</h2></th>
-    <td><%= @lawyer_detail.practice_field_name %></td>
-  </tr>
-  <tr>
-    <th><h2>Experience</h2></th>
-    <td><%= @lawyer_detail.experience %></td>
-  </tr>
-  <tr>
-    <th><h2>City</h2></th>
-    <td><%= @lawyer_detail.city %></td>
-  </tr>
-  <tr>
-    <th><h2>Consultation Fees</h2></th>
-    <td><%= @lawyer_detail.consultation_fees %></td>
-  </tr>
-</table>
+<h1>Lawyer Details</h1>
+
+<div class="lawyer-details-container">
+  <table>
+    <tr>
+      <th><h2>Name</h2></th>
+      <td><%= @lawyer_detail.user.name %></td>
+    </tr>
+    <tr>
+      <th><h2>Email</h2></th>
+      <td><%= @lawyer_detail.user.email %></td>
+    </tr>
+    <tr>
+      <th><h2>License No</h2></th>
+      <td><%= @lawyer_detail.license_no %></td>
+    </tr>
+    <tr>
+      <th><h2>Practice Court Name</h2></th>
+      <td><%= @lawyer_detail.practice_court_name %></td>
+    </tr>
+    <tr>
+      <th><h2>Practice Field Name</h2></th>
+      <td><%= @lawyer_detail.practice_field_name %></td>
+    </tr>
+    <tr>
+      <th><h2>Experience</h2></th>
+      <td><%= @lawyer_detail.experience %></td>
+    </tr>
+    <tr>
+      <th><h2>City</h2></th>
+      <td><%= @lawyer_detail.city %></td>
+    </tr>
+    <tr>
+      <th><h2>Consultation Fees</h2></th>
+      <td><%= @lawyer_detail.consultation_fees %></td>
+    </tr>
+  </table>
+
   <% if @lawyer_detail.user_id == current_user.id %>
-    <% if can? :update,@lawyer_detail %>
+    <% if can? :update, @lawyer_detail %>
       <%= link_to "EDIT", edit_lawyer_detail_path %>
     <% end %>
   <% end %>
+</div>
+
+<div class="reviews-container">
+  <h2>Reviews</h2>
+  <% if @lawyer_detail.reviews.any? %>
+    <ul class="reviews-list">
+      <% @lawyer_detail.reviews.each do |review| %>
+        <li class="review">
+          <p><strong>Rating:</strong> <%= review.rating %></p>
+          <p><strong>Review:</strong> <%= review.content %></p>
+          <p><strong>By:</strong> <%= review.user.name %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No reviews yet.</p>
+  <% end %>
+    <h2>Add Your Review</h2>
+    <%= form_with(model: [@lawyer_detail, Review.new], url: lawyer_detail_reviews_path(@lawyer_detail)) do |f| %>
+      <%= f.label :rating, 'Rating:' %>
+      <%= f.select :rating, options_for_select(1..5) %>
+      <%= f.label :content, 'Review:' %>
+      <%= f.text_area :content, rows: 4 %>
+      <%= f.submit 'Submit Review', class: 'review-btn' %>
+    <% end %>
+</div>
+
 <style>
   table {
     width: 100%;
@@ -71,4 +102,76 @@
   tr:hover {
     background-color: #e6e6e6;
   }
+
+  .reviews-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .reviews-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+  }
+
+  .reviews-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .review {
+    padding: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .review:last-child {
+    border-bottom: none;
+  }
+
+  .review p {
+    margin: 10px 0;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .review-rating {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #17a2b8;
+  }
+
+  .review-author {
+    color: #777;
+  }
+
+  .review-btn {
+    background-color: #17a2b8;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .review-btn:hover {
+    background-color: #138496;
+  }
+
 </style>

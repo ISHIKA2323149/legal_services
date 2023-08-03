@@ -1,16 +1,19 @@
 <h1>Lawyer Details</h1>
 <div class="lawyer-cards-container">
   <% @lawyer_details.each do |lawyer_detail| %>
-      <div class="lawyer-card">
-        <h2 class="lawyer-name"><%= link_to lawyer_detail.user.name, lawyer_detail %></h2>
-        <h2 class="lawyer-name"><%= link_to lawyer_detail.practice_field_name, lawyer_detail %></h2>
-        <% if lawyer_detail.user_id != current_user.id && current_user.role != "lawyer"%>
+    <div class="lawyer-card">
+      <h2 class="lawyer-name"><%= link_to lawyer_detail.user.name, lawyer_detail %></h2>
+      <h2 class="lawyer-name"><%= link_to lawyer_detail.practice_field_name, lawyer_detail %></h2>
+      <% if lawyer_detail.user_id != current_user.id && current_user.role != "lawyer"%>
         <%= button_to 'Hire this lawyer', hire_lawyer_path, method: :post, params: { lawyer_email: lawyer_detail.user.email }, class: 'hire-btn' %>
-        <% end %>
-      </div> 
+      <% end %>
+    </div>
   <% end %>
-  <%= paginate @lawyer_details %>
 </div>
+<div class="pagination">
+  <%= paginate @lawyer_details, previous_label: 'Previous', next_label: 'Next' %>
+</div>
+
 
 <style>
   h1 {
@@ -59,4 +62,77 @@
   .hire-btn:hover {
     background-color: #138496;
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 18px;
+  }
+
+  .pagination a,
+  .pagination span {
+    padding: 8px 12px;
+    margin: 0 5px;
+    color: #17a2b8;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+  }
+
+  .pagination a:hover {
+    background-color: #17a2b8;
+    color: #fff;
+  }
+
+  .pagination .current {
+    background-color: #17a2b8;
+    color: #fff;
+  }
+
+
+
+.review-form {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.review-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.review-btn {
+  background-color: #17a2b8;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.review-btn:hover {
+  background-color: #138496;
+}
+
 </style>

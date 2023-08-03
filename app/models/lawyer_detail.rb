@@ -23,6 +23,7 @@
 #
 class LawyerDetail < ApplicationRecord
   belongs_to :user
+  has_many :reviews, dependent: :destroy
   paginates_per 3
 
   validates_uniqueness_of :license_no

@@ -1,7 +1,7 @@
 class LawyerDetailsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :find_lawyer_detail, only: [:show, :edit, :update]
-  load_and_authorize_resource param_method: :set_params 
+  load_and_authorize_resource param_method: :set_params
 
   def index
     @lawyer_details = LawyerDetail.all.page(params[:page])
@@ -38,10 +38,7 @@ class LawyerDetailsController < ApplicationController
   private
 
   def set_params
-    params.require(:lawyer_detail).permit(
-      :license_no, :practice_court_name, :practice_field_name,
-      :experience, :city, :consultation_fees
-    )
+    params.require(:lawyer_detail).permit(:license_no, :practice_court_name, :practice_field_name, :experience, :city, :consultation_fees, reviews_attributes: [:rating, :content])
   end
 
   def find_lawyer_detail

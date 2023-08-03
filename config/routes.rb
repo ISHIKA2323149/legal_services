@@ -13,5 +13,9 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  resources :lawyer_details, only: [:index, :show] do
+    resources :reviews, only: [:create]
+  end
+
   post '/users/hire', to: 'users#hire_lawyer', as: 'hire_lawyer'
 end
