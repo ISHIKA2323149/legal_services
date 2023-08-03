@@ -1,16 +1,15 @@
 <h1>Lawyer Details</h1>
 <div class="lawyer-cards-container">
   <% @lawyer_details.each do |lawyer_detail| %>
-    
       <div class="lawyer-card">
         <h2 class="lawyer-name"><%= link_to lawyer_detail.user.name, lawyer_detail %></h2>
         <h2 class="lawyer-name"><%= link_to lawyer_detail.practice_field_name, lawyer_detail %></h2>
         <% if lawyer_detail.user_id != current_user.id && current_user.role != "lawyer"%>
         <%= button_to 'Hire this lawyer', hire_lawyer_path, method: :post, params: { lawyer_email: lawyer_detail.user.email }, class: 'hire-btn' %>
         <% end %>
-      </div>
-    
+      </div> 
   <% end %>
+  <%= paginate @lawyer_details %>
 </div>
 
 <style>

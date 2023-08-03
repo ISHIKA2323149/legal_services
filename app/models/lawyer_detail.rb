@@ -23,6 +23,7 @@
 #
 class LawyerDetail < ApplicationRecord
   belongs_to :user
+  paginates_per 3
 
   validates_uniqueness_of :license_no
   validates_presence_of :city,:consultation_fees,:experience,:license_no,:practice_court_name,:practice_field_name
@@ -31,7 +32,7 @@ class LawyerDetail < ApplicationRecord
   private
 
   def user_can_have_one_lawyer_detail
-    if user.lawyer_detail
+    if user.lawyer_detail && user.lawyer_detail != self
       errors.add(:user, "already has a lawyer detail")
     end
   end

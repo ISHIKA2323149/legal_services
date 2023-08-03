@@ -4,7 +4,7 @@ class LawyerDetailsController < ApplicationController
   load_and_authorize_resource param_method: :set_params 
 
   def index
-    @lawyer_details = LawyerDetail.all
+    @lawyer_details = LawyerDetail.all.page(params[:page])
   end
 
   def show
