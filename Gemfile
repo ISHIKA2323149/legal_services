@@ -31,6 +31,7 @@ gem 'turbo-rails'
 gem "byebug"
 gem "cancancan"
 gem 'kaminari'
+gem 'sidekiq'
 
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+  <h1>New Review Added</h1>
+  <p>
+    Hi <%= @lawyer.name %>,
+    <br>
+    You have received a new review for your legal services.
+  </p>
+  <p>
+    Rating: <%= @review.rating %><br>
+    Review: <%= @review.content %>
+  </p>
+  <p>
+    Regards,<br>
+    Online Legal services Team
+  </p>
+</body>
+</html>

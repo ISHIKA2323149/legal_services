@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
+      MyWorker.perform_async(@review.id)
       redirect_to @lawyer_detail, notice: 'Review was successfully created.'
     else
       render 'lawyer_details/show'

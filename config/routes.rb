@@ -1,8 +1,11 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'homes#index'
 
+  mount Sidekiq::Web => '/sidekiq'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users, only: [:show]
   resources :cases

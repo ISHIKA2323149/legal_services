@@ -21,7 +21,7 @@ class LawyerDetailsController < ApplicationController
     @lawyer_detail = current_user.build_lawyer_detail(set_params)
 
     if @lawyer_detail.save
-      redirect_to lawyer_details_path
+      redirect_to lawyer_details_path, notice: 'Lawyer Detail successfully added!'
     else
       render action: :new, status: :unprocessable_entity
     end

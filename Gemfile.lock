@@ -111,6 +111,7 @@ GEM
     code_analyzer (0.5.5)
       sexp_processor
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     cssbundling-rails (1.2.0)
       railties (>= 6.0.0)
@@ -265,6 +266,8 @@ GEM
       activesupport (>= 6.1.5)
       i18n
     redis (4.8.1)
+    redis-client (0.15.0)
+      connection_pool
     regexp_parser (2.8.1)
     reline (0.3.7)
       io-console (~> 0.5)
@@ -320,6 +323,11 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sexp_processor (4.17.0)
+    sidekiq (7.1.2)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -396,6 +404,7 @@ DEPENDENCIES
   rubocop
   sassc-rails
   selenium-webdriver
+  sidekiq
   sprockets-rails
   sqlite3
   stimulus-rails
